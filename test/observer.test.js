@@ -56,6 +56,9 @@ describe('test/observer.test.js', () => {
     const server = http.createServer((req, res) => {
       const o = url.parse(req.url);
       console.log(req.method + ' ' + o.pathname);
+      console.log('X-Lookout-Token =====>', req.headers['x-lookout-token']);
+      assert(req.headers['x-lookout-token']);
+
       if (o.pathname === '/datas') {
         if (req.method === 'GET') {
           server.emit('healthCheck');
