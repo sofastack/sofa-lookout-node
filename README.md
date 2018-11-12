@@ -37,7 +37,7 @@ $ npm install sofa-lookout-node --save
 'use strict';
 
 const LookoutRegistry = require('sofa-lookout-node').LookoutRegistry;
-const StdoutObserver = require('sofa-lookout-node').StdoutObserver;
+const StdoutObserver = require('sofa-lookout-node').Observer.Stdout;
 
 const logger = console;
 // 为了方便演示，这里将 metric 输出到标准输出

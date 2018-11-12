@@ -254,4 +254,20 @@ describe('test/observer.test.js', () => {
     server.close();
     await awaitEvent(server, 'close');
   });
+
+  it('should update in event observer', function(done) {
+    const observer = new (require('../lib/observer/event'))();
+    const registry = new LookoutRegistry({
+      logger,
+      appName: 'app',
+      observer,
+    });
+
+    observer.on('update', (measures, metadata) => {
+      registry.close();
+      assert.deepStrictEqual(measures, []);
+      assert.deepStrictEqual(metadata, { pri: 'HIGH' });
+      done();
+    });
+  });
 });
