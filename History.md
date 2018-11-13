@@ -1,4 +1,10 @@
 
+1.2.0 / 2018-11-13
+==================
+
+**features**
+  * [[`20a7dd5`](http://github.com/alipay/sofa-lookout-node/commit/20a7dd594ab46c176fc4f1eb5eb90e43abc4a265)] - feat(observer): add event observer (XadillaX <<i@2333.moe>>)
+
 1.1.0 / 2018-09-03
 ==================
 
