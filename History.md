@@ -1,4 +1,10 @@
 
+1.2.1 / 2018-12-26
+==================
+
+**fixes**
+  * [[`c8b3456`](http://github.com/alipay/sofa-lookout-node/commit/c8b34563ddead86831ca4e2cfaf3ae511fdacbe3)] - fix: use Promise instead of callback in _request (XadillaX <<i@2333.moe>>)
+
 1.2.0 / 2018-11-13
 ==================
 
