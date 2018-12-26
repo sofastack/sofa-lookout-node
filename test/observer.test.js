@@ -160,17 +160,18 @@ describe('test/observer.test.js', () => {
     mm(registry.logger, 'warn', e => {
       server.emit('server_error', e);
     });
-    mm(httpclient, 'request', (url, options, cb) => {
-      cb(new Error('mock error'));
+    mm(httpclient, 'request', () => {
+      return new Promise((_, reject) => reject(new Error('mock error')));
     });
 
     let err = await awaitEvent(server, 'server_error');
     assert(err.message.includes('mock error'));
 
-    mm(httpclient, 'request', (url, options, cb) => {
+    mm(httpclient, 'request', () => {
       const err = new Error('timeout');
       err.name = 'TimeoutError';
-      cb(err);
+
+      return new Promise((_, reject) => reject(err));
     });
 
     err = await awaitEvent(server, 'server_error');
